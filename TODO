@@ -1,0 +1,4 @@
+* migrare la Bootstrap sau altceva mai arătos
+* parsare mai bună pentru tabele pentru a depista numărul de probleme
+* comunică cu olimpiada.info ca să-și repare HTML-ul
+* fișier de configurare în locul constantelor din cod
