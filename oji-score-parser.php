@@ -6,7 +6,7 @@ require 'lib/third-party/simple_html_dom.php';
 require 'lib/third-party/smarty/Smarty.class.php';
 
 // years to reprocess
-define('PROCESS_YEARS', range(2017, 2017));
+define('PROCESS_YEARS', range(2013, 2017));
 
 // years to hyperlink in the resulting pages
 define('LINK_YEARS', range(2013, 2017));
