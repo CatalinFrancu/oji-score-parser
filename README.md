@@ -19,3 +19,19 @@ Opțiuni:
 
 * În `downloader.php` puteți modifica constanta `DOWNLOAD_YEARS` pentru a descărca alți ani.
 * Puteți pasa argumentul `--force` în linia de comandă pentru a forța descărcarea tuturor clasamentelor județene, inclusiv a celor deja existente în `raw/`. Acest argument poate fi util, căci paginile sunt actualizate ocazional cu informații noi (elevi retrași etc.).
+
+## oji-score-parser.php
+
+Acest program:
+
+1. Parsează fișierele descărcate în directorul `raw/`, pentru anii specificați.
+2. Generează pagini HTML cu clasamente naționale prin interclasarea clasamentelor județene.
+3. Generează fișiere CSV corespunzătoare.
+
+Programul salvează paginile HTML în directorul `www/`, care în final este publicabil undeva pe Internet. Pentru anii trecuți, clasamentele naționale sunt disponibile la [algopedia.ro/oji2017](http://algopedia.ro/oji2017/). Directorul `www/` include deja fișierele JavaScript și CSS necesare.
+
+Opțiuni:
+
+* Constanta `PROCESS_YEARS` specifică anii pentru care doriți regenerarea fișierelor HTML (pentru toate clasele 5-12).
+* Constanta `LINK_YEARS` specifică anii pe care doriți să-i conțină _drop down_-ul din antet (legături către alte clasamente generate din anii anteriori).
+* Fișierul `www/.htaccess` specifică fișierul HTML care doriți să fie prezentat ca index.
