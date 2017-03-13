@@ -1,0 +1,182 @@
+body {
+  font-family: arial;
+  margin: 0px;
+}
+
+header {
+  background: #666;
+  padding: 10px;
+  box-shadow: 0 2px 2px #BFBFBF;
+}
+
+span.logo {
+  color: #fff;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+header form {
+  display: inline;
+  margin-left: 5px;
+}
+
+header select {
+  font-size: 110%;
+}
+
+header a {
+  color: white;
+  margin-left: 20px;
+}
+
+a.menu {
+  padding-left: 25px;
+}
+
+#csvLink {
+  background: url("icons/comma.png") no-repeat;
+}
+
+.hint {
+  margin: 35px 80px;
+}
+
+.hint span {
+  background: #ddd;
+  border: 1px solid #777;
+  border-radius: 6px;
+  box-shadow: 4px 4px 8px #ddd;
+  padding: 15px;
+}
+
+#rankings {
+  border-collapse: collapse;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+#distribution {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#rankings td,
+#rankings th,
+#distribution td,
+#distribution th {
+  border: 1px solid #ccc;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+#rankings th,
+#distribution th {
+  background: #eee;
+}
+
+td.numeric {
+  text-align: right;
+}
+
+.schoolName {
+  color: #777;
+  font-size: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+}
+
+.help {
+  cursor: help;
+}
+
+.pass0 { /* pass */
+  background: #b8ffb8;
+}
+
+.pass1 { /* assumed pass */
+  background: #b8b8ff;
+}
+
+.pass2 { /* fail */
+  background: #ffb8b8;
+}
+
+.pass3 { /* assumed fail */
+  background: #ffdcb8;
+}
+
+.pass4 { /* retired */
+  background: #bbb;
+}
+
+.pass5 { /* under the threshold */
+  background: black;
+  color: white;
+}
+
+.legend {
+  border: 1px solid black;
+  display: inline-block;
+  margin-bottom: 1px;
+  width: 30px;
+}
+
+#rankings tr:hover {
+  background: #acf;
+}
+
+#stats {
+  background: white;
+  border: 1px solid #888;
+  display: none;
+  height: 85%;
+  margin-left: 10px;
+  overflow: auto;
+  padding: 10px;
+  position: fixed;
+  top: 55px; /* left will be determined in JS */
+}
+
+#statsHide {
+  display: block;
+  float: right;
+}
+
+tr.stem {
+  display: none;
+}
+
+.percentageCell {
+  width: 400px;
+}
+
+span.percentage {
+  border-left: 0px solid #acf;
+  padding-left: 5px;
+}
+
+footer {
+  background: #ddd;
+  border-top: 1px solid #888;
+  color: #444;
+  font-size: 80%;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+footer p {
+  margin: 5px 0 0;
+}
+
+footer p a {
+  border-bottom: 1px dotted #008;
+  color: #248;
+  text-decoration: none;
+}
+
+.licenseImg {
+  float: left;
+  margin-right: 10px;
+  margin-top: 5px;
+}
