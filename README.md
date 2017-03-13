@@ -2,6 +2,8 @@
 
 Aceste scripturi descarcă și indexează paginile referitoare la OJI de pe site-ul [olimpiada.info](http://olimpiada.info/). Pe acest site apar doar clasamente județene. Scopul scripturilor este să interclaseze clasamentele județene pentru a publica un clasament național.
 
+Sistemul este făcut un pic pe genunchi, din lipsă de timp. Fișierele HTML de la olimpiada.info au multe incorectitudini. Ca să le putem totuși parsa fără intervenție manuală, folosim [Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/), o bibliotecă destul de învechită, dar care se descurcă cu parsarea.
+
 Sistemul are două componente:
 
 ## downloader.php
@@ -13,7 +15,7 @@ Acest program:
 
 Programul salvează paginile HTML în fișierul `raw/<an>-<clasă>-<județ>.html`. De exemplu, [2015, București clasa a 11-a](http://olimpiada.info/oji2015/index.php?cid=rezultate&w=lic&judet=10&clasa=11) este salvat în `raw/2015-11-10.html` (codul Bucureștiului la olimpiada.info se întâmplă să fie 10).
 
-Paginile deja existente în directorul `raw` nu mai sunt redescărcate.
+Paginile deja existente în directorul `raw` nu mai sunt redescărcate în mod normal.
 
 Opțiuni:
 
