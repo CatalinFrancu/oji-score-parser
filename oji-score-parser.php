@@ -19,7 +19,8 @@ define('Q_FAIL', 2);
 define('Q_ASSUMED_FAIL', 3);
 define('Q_RETIRED', 4);
 define('Q_UNDER_THRESHOLD', 5);
-define('Q_UNKNOWN', 6);
+define('Q_ABSENT', 6);
+define('Q_UNKNOWN', 7);
 $PASS_NAMES = [
   'calificat',
   'calificat?',
@@ -27,6 +28,7 @@ $PASS_NAMES = [
   'picat?',
   'retras',
   'sub barem',
+  'absent',
   'necunoscut',
 ];
 $PASS_LONG_NAMES = [
@@ -36,6 +38,7 @@ $PASS_LONG_NAMES = [
   'elev presupus picat (nu au fost publicate datele)',
   'elev retras',
   'sub baremul minim',
+  'elev absent',
   'situație necunoscută'
 ];
 
@@ -94,13 +97,17 @@ foreach (PROCESS_YEARS as $year) {
         foreach ($rows as $i => $row) {
           if ($i) {
             $cells = $row->find('td');
-            $status = $cells[$statusCol]->plaintext;
+            $status = fixStatus($cells[$statusCol]->plaintext);
             $total = (int)fixString($cells[$totalCol]->plaintext);
             if ($status == 'calificat') {
               $pass = Q_PASS;
               $lastScore = $total;
-            } else {
+            } else if ($status == 'absent') {
+              $pass = Q_ABSENT;
+            } else if ($status == '') {
               $pass = Q_UNKNOWN;
+            } else {
+              die("stare necunoscută: [{$status}]\n");
             }
 
             $scores = [];
@@ -122,7 +129,7 @@ foreach (PROCESS_YEARS as $year) {
         if ($lastScore !== null) {
           // Qualified students are named explicitly
           foreach ($data as $i => &$r) {
-            if ($r['pass'] != Q_PASS) {
+            if ($r['pass'] == Q_UNKNOWN) {
               $r['pass'] = ($r['total'] > $lastScore) ? Q_RETIRED : Q_FAIL;
             }
           }
@@ -135,7 +142,8 @@ foreach (PROCESS_YEARS as $year) {
         }
 
         foreach ($data as $i => &$r) {
-          if ($r['total'] < $THRESHOLD[$grade]) {
+          if (($r['total'] < $THRESHOLD[$grade]) &&
+              ($r['pass'] != Q_ABSENT)) {
             $r['pass'] = Q_UNDER_THRESHOLD;
           }
         }
@@ -216,6 +224,13 @@ function fixString($s) {
     'școala gimnazială ',
     'scoala ',
   ], '', $s);
+
+  return $s;
+}
+
+function fixStatus($s) {
+  $s = trim($s);
+  $s = strtolower($s);
   return $s;
 }
 

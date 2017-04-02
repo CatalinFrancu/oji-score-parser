@@ -115,6 +115,11 @@ td.numeric {
   color: white;
 }
 
+.pass6 { /* absent */
+  background: black;
+  color: white;
+}
+
 .legend {
   border: 1px solid black;
   display: inline-block;
